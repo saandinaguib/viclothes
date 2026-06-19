@@ -1,0 +1,107 @@
+body { background-color: #f5f5f5; }
+
+.header-page {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.header-page h1 {
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.commande-grille {
+    display: flex;
+    gap: 30px;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 40px;
+}
+
+.formulaire-bloc {
+    flex: 2;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 36px;
+}
+
+.formulaire-bloc h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+
+.champ {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 18px;
+}
+
+.champ label {
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #555555;
+}
+
+.champ input {
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+}
+
+.btn-valider {
+    width: 100%;
+    background-color: #111111;
+    color: #ffffff;
+    padding: 14px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    margin-top: 10px;
+}
+
+.recap-bloc {
+    flex: 1;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 28px;
+    height: fit-content;
+}
+
+.recap-bloc h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.recap-article {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #e8e8e8;
+    font-size: 13px;
+    color: #555555;
+}
+
+.recap-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 2px solid #111111;
+}
