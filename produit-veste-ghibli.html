@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veste Brodée Ghibli — VI CLOTHES</title>
+    <link rel="stylesheet" href="commun.css">
     <link rel="stylesheet" href="produit.css">
-</head>
+    <title>Veste Brodée Ghibli — VI CLOTHES</title></head>
 <body>
 
     <nav>
@@ -23,6 +23,7 @@
                 <a href="service.html">Service</a>
                 <a href="contact.html">Contact</a>
                 <a href="apropos.html">À propos</a>
+                <a href="panier.html">🛒 Panier <span id="panier-compteur"></span></a>
             </div>
         </div>
     </nav>
@@ -54,14 +55,18 @@
             <div class="produit-tailles">
                 <p>Taille</p>
                 <div class="tailles">
-                    <button class="taille">S</button>
-                    <button class="taille">M</button>
-                    <button class="taille">L</button>
-                    <button class="taille">XL</button>
+                    <button class="taille" onclick="selectTaille(this)">S</button>
+                    <button class="taille" onclick="selectTaille(this)">M</button>
+                    <button class="taille" onclick="selectTaille(this)">L</button>
+                    <button class="taille" onclick="selectTaille(this)">XL</button>
                 </div>
             </div>
 
-            <button class="btn-ajouter">Ajouter au panier</button>
+            <button class="btn-ajouter" onclick="
+        var taille = document.querySelector('.taille.selectionnee');
+        if (!taille) { alert('Veuillez choisir une taille.'); return; }
+        ajouterAuPanier('Veste Brodée Ghibli', '120.00', 'img/img_veste_ghibli.jpg', taille.textContent);
+    ">Ajouter au panier</button>
         </div>
 
     </div>
@@ -83,6 +88,7 @@
                 <a href="vetements.html">Vêtements</a>
                 <a href="contact.html">Contact</a>
                 <a href="apropos.html">À propos</a>
+                <a href="panier.html">🛒 Panier <span id="panier-compteur"></span></a>
             </div>
         </div>
         <div class="footer-bas">
@@ -91,5 +97,14 @@
         </div>
     </footer>
 
+    <script>
+        function selectTaille(el) {
+            document.querySelectorAll('.taille').forEach(function(b) {
+                b.classList.remove('selectionnee');
+            });
+            el.classList.add('selectionnee');
+        }
+    </script>
+    <script src="panier.js"></script>
 </body>
 </html>
