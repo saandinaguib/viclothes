@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VI CLOTHES</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #111111;
+      --white: #ffffff;
+      --gray-light: #f5f5f5;
+      --gray-mid: #e0e0e0;
+      --gray-text: #888888;
+      --border: #e0e0e0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--black);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-left { display: flex; gap: 28px; }
+    .nav-left a { font-size: 13px; font-weight: 500; color: var(--black); }
+    .nav-left a:hover { opacity: 0.6; }
+
+    .nav-logo {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+    .nav-logo span {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: var(--black);
+    }
+    .nav-logo small {
+      display: block;
+      font-size: 7px;
+      color: var(--gray-text);
+      letter-spacing: 2px;
+      margin-top: -2px;
+    }
+
+    .nav-right { display: flex; gap: 10px; align-items: center; }
+
+    .btn-search {
+      border: 1.5px solid var(--black);
+      border-radius: 20px;
+      padding: 5px 16px;
+      font-size: 12px;
+      font-weight: 500;
+      background: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-group {
+      background: #c8c8c8;
+      border-radius: 20px;
+      padding: 5px 18px;
+      display: flex;
+      gap: 16px;
+    }
+    .btn-group a { font-size: 12px; font-weight: 500; color: var(--black); }
+    .btn-group a:hover { opacity: 0.7; }
+
+    /* ===== HERO BANNIÈRE ===== */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 420px;
+      overflow: hidden;
+      background: var(--black);
+    }
+
+    .hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.6;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.1) 100%);
+    }
+
+    .hero-content {
+      position: absolute;
+      left: 55px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .hero-content h1 {
+      font-size: 52px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .hero-content p {
+      font-size: 14px;
+      color: #cccccc;
+      margin-bottom: 28px;
+    }
+
+    .btn-commander {
+      display: inline-block;
+      background: var(--white);
+      color: var(--black);
+      padding: 12px 28px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 4px;
+      transition: opacity 0.2s;
+    }
+    .btn-commander:hover { opacity: 0.85; }
+
+    /* ===== BEST SELLERS ===== */
+    .best-sellers {
+      padding: 60px 40px;
+      background: var(--white);
+    }
+
+    .best-sellers h2 {
+      text-align: center;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: var(--black);
+      margin-bottom: 36px;
+      text-transform: uppercase;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .product-card {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+      cursor: pointer;
+    }
+    .product-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+
+    .product-img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: var(--gray-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 14px 16px;
+      border-top: 1px solid var(--border);
+    }
+    .product-info h3 { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+    .product-info p { font-size: 12px; color: var(--gray-text); }
+
+    /* AFFICHER PLUS */
+    .voir-plus {
+      text-align: center;
+      margin-top: 36px;
+    }
+    .voir-plus a {
+      display: inline-block;
+      border: 1.5px solid var(--gray-mid);
+      padding: 10px 60px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--black);
+      border-radius: 4px;
+      transition: border-color 0.2s;
+    }
+    .voir-plus a:hover { border-color: var(--black); }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 48px 40px 24px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h4 {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 16px;
+    }
+
+    .footer-col p, .footer-col a {
+      font-size: 13px;
+      color: #aaa;
+      display: block;
+      margin-bottom: 8px;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--white); }
+
+    .footer-bottom {
+      border-top: 1px solid #222;
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-bottom p { font-size: 11px; color: #444; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-left">
+      <a href="index.html">Accueil</a>
+      <a href="vetements.html">Vêtements</a>
+    </div>
+    <div class="nav-logo">
+      <span>VI CLOTHES</span>
+      <small>•</small>
+    </div>
+    <div class="nav-right">
+      <button class="btn-search">Recherche 🔍</button>
+      <div class="btn-group">
+        <a href="service.html">Service</a>
+        <a href="contact.html">Contact</a>
+        <a href="apropos.html">À propos</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Le style,<br>c'est maintenant.</h1>
+      <p>Ni parfait ni à la tendance — la vêtements des ceux qui l'ont.</p>
+      <a href="vetements.html" class="btn-commander">Commencer</a>
+    </div>
+  </section>
+
+  <!-- BEST SELLERS -->
+  <section class="best-sellers">
+    <h2>Meilleures ventes</h2>
+    <div class="products-grid">
+
+      <div class="product-card">
+        <div class="product-img">
+          <img src="img/img_pantalon_marine.jpg" alt="Pantalon Marine Brodé" onerror="this.parentElement.style.background='#e8e8e8'">
+        </div>
+        <div class="product-info">
+          <h3>Pantalon Marine Brodé</h3>
+          <p>95,00 €</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">
+          <img src="img/img_jogging_beige.jpg" alt="Jogging Beige Brodé" onerror="this.parentElement.style.background='#e8e8e8'">
+        </div>
+        <div class="product-info">
+          <h3>Jogging Beige Brodé</h3>
+          <p>85,00 €</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">
+          <img src="img/img_veste_ghibli.jpg" alt="Veste Brodée Ghibli" onerror="this.parentElement.style.background='#e8e8e8'">
+        </div>
+        <div class="product-info">
+          <h3>Veste Brodée Ghibli</h3>
+          <p>120,00 €</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="voir-plus">
+      <a href="vetements.html">Afficher plus</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>VI CLOTHES</h4>
+        <p>2 Rue Georges Lyvet</p>
+        <p>69200 Vénissieux</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:Rayanlepori@icloud.com">Rayanlepori@icloud.com</a>
+        <a href="tel:0769154289">07 69 15 42 89</a>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="vetements.html">Vêtements</a>
+        <a href="contact.html">Contact</a>
+        <a href="apropos.html">À propos</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 VI CLOTHES — Rayan LEPORI. Tous droits réservés.</p>
+      <p>Mentions légales</p>
+    </div>
+  </footer>
+
+</body>
+</html>
