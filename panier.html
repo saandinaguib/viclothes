@@ -41,6 +41,7 @@
                 <span id="total-prix">0 €</span>
             </div>
             <a href="commande.html" class="btn-commander" id="btn-commander">Passer la commande</a>
+            <button onclick="viderPanier()" class="btn-vider">Vider le panier</button>
         </div>
     </div>
 
@@ -88,6 +89,12 @@
         }
 
         document.getElementById('articles-bloc').innerHTML = contenu;
+
+        function viderPanier() {
+            localStorage.removeItem('panier');
+            alert('Panier vidé !');
+            location.reload();
+        }
     </script>
 
 </body>
