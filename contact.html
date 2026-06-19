@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — VI CLOTHES</title>
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+
+    <nav>
+        <div class="nav-gauche">
+            <a href="index.html">Accueil</a>
+            <a href="vetements.html">Vêtements</a>
+        </div>
+        <div class="nav-logo">
+            <p>VI CLOTHES</p>
+            <p>•</p>
+        </div>
+        <div class="nav-droite">
+            <button class="btn-recherche">Recherche 🔍</button>
+            <div class="nav-liens">
+                <a href="service.html">Service</a>
+                <a href="contact.html" class="actif">Contact</a>
+                <a href="apropos.html">À propos</a>
+                <a href="panier.html">🛒 Panier <span id="panier-compteur"></span></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="header-page">
+        <h1>Nous Contacter</h1>
+    </div>
+
+    <div class="contact-grille">
+
+        <!-- FORMULAIRE -->
+        <div class="formulaire-bloc">
+            <h2>Nous écrire</h2>
+            <p class="sous-titre">Remplissez le formulaire, nous vous répondrons sous 24h.</p>
+
+            <form action="traitement-contact.php" method="POST">
+
+                <div class="champ">
+                    <label for="sujet">Sujet *</label>
+                    <input type="text" id="sujet" name="sujet" placeholder="Objet de votre message" required>
+                </div>
+
+                <div class="champ-double">
+                    <div class="champ">
+                        <label for="prenom">Prénom *</label>
+                        <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
+                    </div>
+                    <div class="champ">
+                        <label for="nom">Nom *</label>
+                        <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+                    </div>
+                </div>
+
+                <div class="champ">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                </div>
+
+                <div class="champ">
+                    <label for="telephone">Téléphone</label>
+                    <input type="tel" id="telephone" name="telephone" placeholder="+33 X XX XX XX XX">
+                </div>
+
+                <div class="champ">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" placeholder="Votre message..." rows="6" required></textarea>
+                </div>
+
+                <button type="submit" class="btn-envoyer">Envoyer →</button>
+
+            </form>
+        </div>
+
+        <!-- INFOS -->
+        <div class="infos-bloc">
+            <h2>Informations</h2>
+
+            <div class="info-ligne">
+                <p class="info-label">ADRESSE</p>
+                <p>2 Rue Georges Lyvet</p>
+                <p>69200 Vénissieux</p>
+            </div>
+
+            <div class="info-ligne">
+                <p class="info-label">EMAIL</p>
+                <p>Rayanlepori@icloud.com</p>
+            </div>
+
+            <div class="info-ligne">
+                <p class="info-label">TÉLÉPHONE</p>
+                <p>07 69 15 42 89</p>
+            </div>
+
+            <div class="info-ligne">
+                <p class="info-label">DISPONIBILITÉ</p>
+                <p>Lun — Ven : 9h00 – 18h00</p>
+                <p>Réponse sous 24h ouvrées</p>
+            </div>
+
+            <div class="info-ligne">
+                <p class="info-label">RÉSEAUX SOCIAUX</p>
+                <a href="#">Instagram</a>
+                <a href="#">TikTok</a>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-grille">
+            <div class="footer-colonne">
+                <h4>VI CLOTHES</h4>
+                <p>2 Rue Georges Lyvet</p>
+                <p>69200 Vénissieux</p>
+            </div>
+            <div class="footer-colonne">
+                <h4>Contact</h4>
+                <a href="mailto:Rayanlepori@icloud.com">Rayanlepori@icloud.com</a>
+                <a href="tel:0769154289">07 69 15 42 89</a>
+            </div>
+            <div class="footer-colonne">
+                <h4>Navigation</h4>
+                <a href="vetements.html">Vêtements</a>
+                <a href="contact.html">Contact</a>
+                <a href="apropos.html">À propos</a>
+            </div>
+        </div>
+        <div class="footer-bas">
+            <p>© 2026 VI CLOTHES — Rayan LEPORI. Tous droits réservés.</p>
+            <p>Mentions légales</p>
+        </div>
+    </footer>
+
+    <script src="panier.js"></script>
+</body>
+</html>
