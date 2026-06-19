@@ -1,49 +1,34 @@
-// ===== PANIER VI CLOTHES =====
-// Stockage des articles dans le localStorage du navigateur
-
-// Récupérer le panier depuis le localStorage (ou tableau vide si rien)
+// Lire le panier depuis la mémoire du navigateur
 function getPanier() {
-    var panier = localStorage.getItem('viclothes_panier');
-    if (panier) {
-        return JSON.parse(panier);
+    var data = localStorage.getItem('viclothes_panier');
+    if (data) {
+        return JSON.parse(data);
     }
     return [];
 }
 
-// Sauvegarder le panier dans le localStorage
+// Sauvegarder le panier dans la mémoire du navigateur
 function savePanier(panier) {
     localStorage.setItem('viclothes_panier', JSON.stringify(panier));
 }
 
-// Ajouter un article au panier
+// Ajouter un article
 function ajouterAuPanier(nom, prix, image, taille) {
     var panier = getPanier();
-    panier.push({
-        nom: nom,
-        prix: prix,
-        image: image,
-        taille: taille
-    });
+    panier.push({ nom: nom, prix: prix, image: image, taille: taille });
     savePanier(panier);
     alert(nom + ' ajouté au panier !');
-    mettreAjourCompteur();
+    afficherCompteur();
 }
 
-// Compter le nombre d'articles dans le panier
-function compterArticles() {
-    return getPanier().length;
-}
-
-// Mettre à jour le compteur affiché dans la navbar
-function mettreAjourCompteur() {
+// Afficher le nombre d'articles dans la navbar
+function afficherCompteur() {
     var compteur = document.getElementById('panier-compteur');
-    if (compteur) {
-        var nb = compterArticles();
-        compteur.textContent = nb > 0 ? '(' + nb + ')' : '';
+    var nb = getPanier().length;
+    if (compteur && nb > 0) {
+        compteur.textContent = '(' + nb + ')';
     }
 }
 
-// Lancer la mise à jour du compteur au chargement de la page
-window.onload = function() {
-    mettreAjourCompteur();
-};
+// Lancer le compteur au chargement de la page
+afficherCompteur();

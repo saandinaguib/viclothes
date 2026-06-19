@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veste Brodée Ghibli — VI CLOTHES</title>
     <link rel="stylesheet" href="commun.css">
     <link rel="stylesheet" href="produit.css">
-    <title>Veste Brodée Ghibli — VI CLOTHES</title></head>
+</head>
 <body>
 
     <nav>
@@ -14,13 +15,12 @@
             <a href="vetements.html">Vêtements</a>
         </div>
         <div class="nav-logo">
-            <p>VI CLOTHES</p>
-            <p>•</p>
+            <span class="logo-titre">VI CLOTHES</span>
+            <span class="logo-point">•</span>
         </div>
         <div class="nav-droite">
             <button class="btn-recherche">Recherche 🔍</button>
             <div class="nav-liens">
-                <a href="service.html">Service</a>
                 <a href="contact.html">Contact</a>
                 <a href="apropos.html">À propos</a>
                 <a href="panier.html">🛒 Panier <span id="panier-compteur"></span></a>
@@ -28,16 +28,10 @@
         </div>
     </nav>
 
-    <!-- FIL D'ARIANE -->
     <div class="fil-ariane">
-        <a href="index.html">Accueil</a>
-        <span>›</span>
-        <a href="vetements.html">Vêtements</a>
-        <span>›</span>
-        Veste Brodée Ghibli
+        <a href="index.html">Accueil</a> › <a href="vetements.html">Vêtements</a> › Veste Brodée Ghibli
     </div>
 
-    <!-- DETAIL PRODUIT -->
     <div class="produit-detail">
 
         <div class="produit-image">
@@ -47,26 +41,17 @@
         <div class="produit-info">
             <h1>Veste Brodée Ghibli</h1>
             <p class="produit-prix">120,00 €</p>
+            <p class="produit-description">Veste technique brodée bicolore avec capuche intégrée. Broderies exclusives VI CLOTHES.</p>
 
-            <div class="produit-description">
-                <p>Veste technique brodée à l'inspiration Ghibli. Coloris kaki bicolore avec broderies exclusives VI CLOTHES. Coupe ajustée avec capuche intégrée.</p>
+            <p class="taille-label">TAILLE</p>
+            <div class="tailles">
+                <button class="taille" id="S" onclick="selectTaille(this, 'S')">S</button>
+                <button class="taille" id="M" onclick="selectTaille(this, 'M')">M</button>
+                <button class="taille" id="L" onclick="selectTaille(this, 'L')">L</button>
+                <button class="taille" id="XL" onclick="selectTaille(this, 'XL')">XL</button>
             </div>
 
-            <div class="produit-tailles">
-                <p>Taille</p>
-                <div class="tailles">
-                    <button class="taille" onclick="selectTaille(this)">S</button>
-                    <button class="taille" onclick="selectTaille(this)">M</button>
-                    <button class="taille" onclick="selectTaille(this)">L</button>
-                    <button class="taille" onclick="selectTaille(this)">XL</button>
-                </div>
-            </div>
-
-            <button class="btn-ajouter" onclick="
-        var taille = document.querySelector('.taille.selectionnee');
-        if (!taille) { alert('Veuillez choisir une taille.'); return; }
-        ajouterAuPanier('Veste Brodée Ghibli', '120.00', 'img/img_veste_ghibli.jpg', taille.textContent);
-    ">Ajouter au panier</button>
+            <button class="btn-ajouter" onclick="ajouterArticle()">Ajouter au panier</button>
         </div>
 
     </div>
@@ -88,7 +73,6 @@
                 <a href="vetements.html">Vêtements</a>
                 <a href="contact.html">Contact</a>
                 <a href="apropos.html">À propos</a>
-                <a href="panier.html">🛒 Panier <span id="panier-compteur"></span></a>
             </div>
         </div>
         <div class="footer-bas">
@@ -97,14 +81,33 @@
         </div>
     </footer>
 
+    <script src="panier.js"></script>
     <script>
-        function selectTaille(el) {
-            document.querySelectorAll('.taille').forEach(function(b) {
-                b.classList.remove('selectionnee');
-            });
-            el.classList.add('selectionnee');
+        // Taille sélectionnée par le client
+        var tailleChoisie = '';
+
+        function selectTaille(bouton, taille) {
+            document.getElementById('S').style.backgroundColor = '';
+            document.getElementById('S').style.color = '';
+            document.getElementById('M').style.backgroundColor = '';
+            document.getElementById('M').style.color = '';
+            document.getElementById('L').style.backgroundColor = '';
+            document.getElementById('L').style.color = '';
+            document.getElementById('XL').style.backgroundColor = '';
+            document.getElementById('XL').style.color = '';
+            bouton.style.backgroundColor = '#111111';
+            bouton.style.color = '#ffffff';
+            tailleChoisie = taille;
+        }
+
+        function ajouterArticle() {
+            if (tailleChoisie === '') {
+                alert('Veuillez choisir une taille.');
+                return;
+            }
+            ajouterAuPanier('Veste Brodée Ghibli', '120.00', 'img/img_veste_ghibli.jpg', tailleChoisie);
         }
     </script>
-    <script src="panier.js"></script>
+
 </body>
 </html>

@@ -3,27 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vêtements — VI CLOTHES</title>
     <link rel="stylesheet" href="commun.css">
     <link rel="stylesheet" href="vetements.css">
-    <title>VI CLOTHES — Vêtements</title></head>
+</head>
 <body>
 
-    <!-- NAVBAR -->
     <nav>
         <div class="nav-gauche">
             <a href="index.html">Accueil</a>
-            <a href="vetements.html" class="actif">Vêtements</a>
+            <a href="vetements.html">Vêtements</a>
         </div>
-
-        <div class="nav-centre">
-            <span class="logo">VI CLOTHES</span><br>
-            <span class="point">•</span>
+        <div class="nav-logo">
+            <span class="logo-titre">VI CLOTHES</span>
+            <span class="logo-point">•</span>
         </div>
-
         <div class="nav-droite">
             <button class="btn-recherche">Recherche 🔍</button>
             <div class="nav-liens">
-                <a href="service.html">Service</a>
                 <a href="contact.html">Contact</a>
                 <a href="apropos.html">À propos</a>
                 <a href="panier.html">🛒 Panier <span id="panier-compteur"></span></a>
@@ -31,17 +28,17 @@
         </div>
     </nav>
 
-    <!-- HEADER PAGE -->
     <div class="header-page">
         <h1>Nos Vêtements</h1>
         <p>Explorez l'univers VI CLOTHES et découvrez nos collections exclusives</p>
+        <div class="barre-recherche">
+            <input type="text" id="recherche" placeholder="Rechercher un article..." onkeyup="filtrerProduits()">
+        </div>
     </div>
 
-    <!-- CATALOGUE -->
-    <section class="catalogue">
-        <div class="grille-produits">
+    <div class="catalogue">
+        <div class="grille-produits" id="grille-produits">
 
-            <!-- LIGNE 1 -->
             <a href="produit-pantalon-marine.html" class="carte-produit">
                 <img src="img/img_pantalon_marine.jpg" alt="Pantalon Marine Brodé">
                 <div class="info-produit">
@@ -66,9 +63,8 @@
                 </div>
             </a>
 
-            <!-- LIGNE 2 -->
             <a href="produit-veste-noire.html" class="carte-produit">
-                <img src="img/img_veste_noire.jpg" alt="Veste Réversible Noire" class="img-courte">
+                <img src="img/img_veste_noire.jpg" alt="Veste Réversible Noire">
                 <div class="info-produit">
                     <h3>Veste Réversible Noire</h3>
                     <p>110,00 €</p>
@@ -76,7 +72,7 @@
             </a>
 
             <a href="produit-veste-violette.html" class="carte-produit">
-                <img src="img/img_veste_violette.jpg" alt="Veste Polaire Violette" class="img-courte">
+                <img src="img/img_veste_violette.jpg" alt="Veste Polaire Violette">
                 <div class="info-produit">
                     <h3>Veste Polaire Violette</h3>
                     <p>105,00 €</p>
@@ -84,7 +80,7 @@
             </a>
 
             <a href="produit-pull-berserk.html" class="carte-produit">
-                <img src="img/img_pull_berserk.jpg" alt="Pull Berserk" class="img-courte">
+                <img src="img/img_pull_berserk.jpg" alt="Pull Berserk">
                 <div class="info-produit">
                     <h3>Pull Berserk</h3>
                     <p>89,00 €</p>
@@ -92,13 +88,9 @@
             </a>
 
         </div>
+        <p id="aucun-resultat" style="display:none; text-align:center; color:#888; padding:40px 0;">Aucun article trouvé.</p>
+    </div>
 
-        <div class="voir-plus">
-            <a href="#">Afficher plus</a>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
     <footer>
         <div class="footer-grille">
             <div class="footer-colonne">
@@ -113,10 +105,9 @@
             </div>
             <div class="footer-colonne">
                 <h4>Navigation</h4>
-                <a href="index.html">Accueil</a>
+                <a href="vetements.html">Vêtements</a>
                 <a href="contact.html">Contact</a>
                 <a href="apropos.html">À propos</a>
-                <a href="panier.html">🛒 Panier <span id="panier-compteur"></span></a>
             </div>
         </div>
         <div class="footer-bas">
@@ -126,5 +117,28 @@
     </footer>
 
     <script src="panier.js"></script>
+    <script>
+        function filtrerProduits() {
+            var texte = document.getElementById('recherche').value.toLowerCase();
+            var grille = document.getElementById('grille-produits');
+            var cartes = grille.getElementsByTagName('a');
+            var nb = 0;
+            for (var i = 0; i < cartes.length; i++) {
+                var nom = cartes[i].getElementsByTagName('h3')[0].textContent.toLowerCase();
+                if (nom.indexOf(texte) !== -1) {
+                    cartes[i].style.display = 'block';
+                    nb++;
+                } else {
+                    cartes[i].style.display = 'none';
+                }
+            }
+            if (nb === 0) {
+                document.getElementById('aucun-resultat').style.display = 'block';
+            } else {
+                document.getElementById('aucun-resultat').style.display = 'none';
+            }
+        }
+    </script>
+
 </body>
 </html>

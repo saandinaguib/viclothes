@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panier — VI CLOTHES</title>
     <link rel="stylesheet" href="commun.css">
     <link rel="stylesheet" href="panier.css">
-    <title>Panier — VI CLOTHES</title></head>
+</head>
 <body>
 
     <nav>
@@ -14,16 +15,15 @@
             <a href="vetements.html">Vêtements</a>
         </div>
         <div class="nav-logo">
-            <p>VI CLOTHES</p>
-            <p>•</p>
+            <span class="logo-titre">VI CLOTHES</span>
+            <span class="logo-point">•</span>
         </div>
         <div class="nav-droite">
             <button class="btn-recherche">Recherche 🔍</button>
             <div class="nav-liens">
-                <a href="service.html">Service</a>
                 <a href="contact.html">Contact</a>
                 <a href="apropos.html">À propos</a>
-                <a href="panier.html" class="actif">🛒 Panier <span id="panier-compteur"></span></a>
+                <a href="panier.html">🛒 Panier <span id="panier-compteur"></span></a>
             </div>
         </div>
     </nav>
@@ -34,17 +34,9 @@
 
     <div class="panier-contenu">
 
-        <!-- LISTE ARTICLES -->
-        <div class="articles-bloc">
-            <div id="liste-articles">
-                <!-- Rempli par JavaScript -->
-            </div>
-            <p id="panier-vide" style="display:none; color:#888; font-size:14px; padding:20px 0;">
-                Votre panier est vide. <a href="vetements.html" style="color:#111; font-weight:bold;">Continuer les achats →</a>
-            </p>
+        <div class="articles-bloc" id="articles-bloc">
         </div>
 
-        <!-- RÉCAPITULATIF -->
         <div class="recap-bloc">
             <h2>Récapitulatif</h2>
             <div class="recap-ligne">
@@ -83,38 +75,38 @@
 
     <script src="panier.js"></script>
     <script>
-        // Afficher les articles du panier
         var panier = getPanier();
-        var liste = document.getElementById('liste-articles');
-        var vide = document.getElementById('panier-vide');
+        var bloc = document.getElementById('articles-bloc');
+        var total = 0;
+        var i;
 
         if (panier.length === 0) {
-            vide.style.display = 'block';
+            bloc.innerHTML = '<p style="color:#888;">Votre panier est vide. <a href="vetements.html" style="color:#111; font-weight:bold;">Voir les articles →</a></p>';
             document.getElementById('btn-commander').style.display = 'none';
         } else {
-            var total = 0;
-            panier.forEach(function(article, index) {
-                total += parseFloat(article.prix);
-                liste.innerHTML += '<div class="article">' +
-                    '<img src="' + article.image + '" alt="' + article.nom + '">' +
+            for (i = 0; i < panier.length; i++) {
+                total = total + parseFloat(panier[i].prix);
+                bloc.innerHTML = bloc.innerHTML +
+                    '<div class="article">' +
+                    '<img src="' + panier[i].image + '" alt="' + panier[i].nom + '">' +
                     '<div class="article-info">' +
-                        '<h3>' + article.nom + '</h3>' +
-                        '<p>Taille : ' + article.taille + '</p>' +
-                        '<p class="article-prix">' + parseFloat(article.prix).toFixed(2).replace('.', ',') + ' €</p>' +
+                    '<h3>' + panier[i].nom + '</h3>' +
+                    '<p>Taille : ' + panier[i].taille + '</p>' +
+                    '<p class="article-prix">' + panier[i].prix + ' €</p>' +
                     '</div>' +
-                    '<button class="btn-supprimer" onclick="supprimerArticle(' + index + ')">✕</button>' +
-                '</div>';
-            });
-            document.getElementById('total-prix').textContent = total.toFixed(2).replace('.', ',') + ' €';
+                    '<button class="btn-supprimer" onclick="supprimer(' + i + ')">✕</button>' +
+                    '</div>';
+            }
+            document.getElementById('total-prix').textContent = total.toFixed(2) + ' €';
         }
 
-        // Supprimer un article
-        function supprimerArticle(index) {
-            var panier = getPanier();
-            panier.splice(index, 1);
-            savePanier(panier);
+        function supprimer(index) {
+            var p = getPanier();
+            p.splice(index, 1);
+            savePanier(p);
             location.reload();
         }
     </script>
+
 </body>
 </html>
