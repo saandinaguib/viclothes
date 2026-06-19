@@ -38,11 +38,63 @@ nav {
 
 .nav-gauche a {
     font-size: 13px;
-    font-weight: bold;
+    font-weight: 500;
+    font-family: Arial, sans-serif;
 }
 
 .nav-gauche a:hover {
     opacity: 0.6;
+}
+
+.nav-logo {
+    text-align: center;
+}
+
+.nav-logo p:first-child {
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    font-family: Arial, sans-serif;
+}
+
+.nav-logo p:last-child {
+    font-size: 8px;
+    color: #888888;
+}
+
+.nav-droite {
+    grid-column: 3;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.btn-recherche {
+    border: 2px solid #111111;
+    border-radius: 20px;
+    padding: 5px 16px;
+    font-size: 12px;
+    font-weight: bold;
+    background: none;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+}
+
+.nav-liens {
+    background-color: #c8c8c8;
+    border-radius: 20px;
+    padding: 5px 18px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.nav-liens a {
+    font-size: 12px;
+    font-weight: 500;
+    font-family: Arial, sans-serif;
+    color: #111111;
 }
 .nav-logo {
     grid-column: 2;
