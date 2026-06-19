@@ -34,7 +34,6 @@
 
     <div class="commande-grille">
 
-        <!-- FORMULAIRE COORDONNÉES -->
         <div class="formulaire-bloc">
             <h2>Mes coordonnées</h2>
 
@@ -79,12 +78,17 @@
                     <input type="text" id="code-postal" name="code_postal" placeholder="69000" required>
                 </div>
 
-                <button type="submit" class="btn-valider" onclick="preparerCommande()">Valider et payer →</button>
+                <button type="submit" class="btn-valider" onclick="preparerCommande()">Valider ma commande</button>
 
             </form>
+
+            <div class="paypal-bloc">
+                <p>Après validation, cliquez ici pour payer :</p>
+                <a href="#" id="btn-paypal" class="btn-paypal">Payer avec PayPal →</a>
+            </div>
+
         </div>
 
-        <!-- RÉCAPITULATIF PANIER -->
         <div class="recap-bloc">
             <h2>Ma commande</h2>
             <div id="recap-articles"></div>
@@ -140,11 +144,15 @@
             document.getElementById('recap-total-prix').textContent = total + ' €';
             document.getElementById('champ-articles').value = listeArticles;
             document.getElementById('champ-total').value = total + ' €';
+
+            // Lien PayPal avec le montant pré-rempli
+            document.getElementById('btn-paypal').href = 'https://paypal.me/NaguibSaandi/' + total + 'EUR';
         }
 
         function preparerCommande() {
             localStorage.setItem('commande_statut', 'en_attente');
             localStorage.setItem('commande_total', total);
+            localStorage.setItem('commande_articles', listeArticles);
         }
     </script>
 
