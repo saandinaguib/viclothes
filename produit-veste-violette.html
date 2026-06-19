@@ -23,7 +23,7 @@
             <div class="nav-liens">
                 <a href="contact.html">Contact</a>
                 <a href="apropos.html">À propos</a>
-                <a href="panier.html">🛒 Panier <span id="panier-compteur"></span></a>
+                <a href="panier.html">🛒 Panier</a>
             </div>
         </div>
     </nav>
@@ -33,11 +33,9 @@
     </div>
 
     <div class="produit-detail">
-
         <div class="produit-image">
             <img src="img/img_veste_violette.jpg" alt="Veste Polaire Violette">
         </div>
-
         <div class="produit-info">
             <h1>Veste Polaire Violette</h1>
             <p class="produit-prix">105,00 €</p>
@@ -45,15 +43,14 @@
 
             <p class="taille-label">TAILLE</p>
             <div class="tailles">
-                <button class="taille" id="S" onclick="selectTaille(this, 'S')">S</button>
-                <button class="taille" id="M" onclick="selectTaille(this, 'M')">M</button>
-                <button class="taille" id="L" onclick="selectTaille(this, 'L')">L</button>
-                <button class="taille" id="XL" onclick="selectTaille(this, 'XL')">XL</button>
+                <button class="taille" onclick="choisirTaille('S')">S</button>
+                <button class="taille" onclick="choisirTaille('M')">M</button>
+                <button class="taille" onclick="choisirTaille('L')">L</button>
+                <button class="taille" onclick="choisirTaille('XL')">XL</button>
             </div>
 
             <button class="btn-ajouter" onclick="ajouterArticle()">Ajouter au panier</button>
         </div>
-
     </div>
 
     <footer>
@@ -83,29 +80,19 @@
 
     <script src="panier.js"></script>
     <script>
-        // Taille sélectionnée par le client
-        var tailleChoisie = '';
+        var taille = '';
 
-        function selectTaille(bouton, taille) {
-            document.getElementById('S').style.backgroundColor = '';
-            document.getElementById('S').style.color = '';
-            document.getElementById('M').style.backgroundColor = '';
-            document.getElementById('M').style.color = '';
-            document.getElementById('L').style.backgroundColor = '';
-            document.getElementById('L').style.color = '';
-            document.getElementById('XL').style.backgroundColor = '';
-            document.getElementById('XL').style.color = '';
-            bouton.style.backgroundColor = '#111111';
-            bouton.style.color = '#ffffff';
-            tailleChoisie = taille;
+        function choisirTaille(t) {
+            taille = t;
+            alert('Taille ' + t + ' sélectionnée.');
         }
 
         function ajouterArticle() {
-            if (tailleChoisie === '') {
+            if (taille == '') {
                 alert('Veuillez choisir une taille.');
-                return;
+            } else {
+                ajouterAuPanier('Veste Polaire Violette', '105', 'img/img_veste_violette.jpg', taille);
             }
-            ajouterAuPanier('Veste Polaire Violette', '105.00', 'img/img_veste_violette.jpg', tailleChoisie);
         }
     </script>
 

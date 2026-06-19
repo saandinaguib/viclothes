@@ -23,7 +23,7 @@
             <div class="nav-liens">
                 <a href="contact.html">Contact</a>
                 <a href="apropos.html">À propos</a>
-                <a href="panier.html">🛒 Panier <span id="panier-compteur"></span></a>
+                <a href="panier.html">🛒 Panier</a>
             </div>
         </div>
     </nav>
@@ -32,14 +32,15 @@
         <h1>Nos Vêtements</h1>
         <p>Explorez l'univers VI CLOTHES et découvrez nos collections exclusives</p>
         <div class="barre-recherche">
-            <input type="text" id="recherche" placeholder="Rechercher un article..." onkeyup="filtrerProduits()">
+            <input type="text" id="recherche" placeholder="Rechercher un article...">
+            <button onclick="filtrer()">Rechercher</button>
         </div>
     </div>
 
     <div class="catalogue">
-        <div class="grille-produits" id="grille-produits">
+        <div class="grille-produits">
 
-            <a href="produit-pantalon-marine.html" class="carte-produit">
+            <a href="produit-pantalon-marine.html" class="carte-produit" id="carte1">
                 <img src="img/img_pantalon_marine.jpg" alt="Pantalon Marine Brodé">
                 <div class="info-produit">
                     <h3>Pantalon Marine Brodé</h3>
@@ -47,7 +48,7 @@
                 </div>
             </a>
 
-            <a href="produit-jogging-beige.html" class="carte-produit">
+            <a href="produit-jogging-beige.html" class="carte-produit" id="carte2">
                 <img src="img/img_jogging_beige.jpg" alt="Jogging Beige Brodé">
                 <div class="info-produit">
                     <h3>Jogging Beige Brodé</h3>
@@ -55,7 +56,7 @@
                 </div>
             </a>
 
-            <a href="produit-veste-ghibli.html" class="carte-produit">
+            <a href="produit-veste-ghibli.html" class="carte-produit" id="carte3">
                 <img src="img/img_veste_ghibli.jpg" alt="Veste Brodée Ghibli">
                 <div class="info-produit">
                     <h3>Veste Brodée Ghibli</h3>
@@ -63,7 +64,7 @@
                 </div>
             </a>
 
-            <a href="produit-veste-noire.html" class="carte-produit">
+            <a href="produit-veste-noire.html" class="carte-produit" id="carte4">
                 <img src="img/img_veste_noire.jpg" alt="Veste Réversible Noire">
                 <div class="info-produit">
                     <h3>Veste Réversible Noire</h3>
@@ -71,7 +72,7 @@
                 </div>
             </a>
 
-            <a href="produit-veste-violette.html" class="carte-produit">
+            <a href="produit-veste-violette.html" class="carte-produit" id="carte5">
                 <img src="img/img_veste_violette.jpg" alt="Veste Polaire Violette">
                 <div class="info-produit">
                     <h3>Veste Polaire Violette</h3>
@@ -79,7 +80,7 @@
                 </div>
             </a>
 
-            <a href="produit-pull-berserk.html" class="carte-produit">
+            <a href="produit-pull-berserk.html" class="carte-produit" id="carte6">
                 <img src="img/img_pull_berserk.jpg" alt="Pull Berserk">
                 <div class="info-produit">
                     <h3>Pull Berserk</h3>
@@ -88,7 +89,6 @@
             </a>
 
         </div>
-        <p id="aucun-resultat" style="display:none; text-align:center; color:#888; padding:40px 0;">Aucun article trouvé.</p>
     </div>
 
     <footer>
@@ -118,24 +118,17 @@
 
     <script src="panier.js"></script>
     <script>
-        function filtrerProduits() {
+        var noms = ['pantalon marine', 'jogging beige', 'veste ghibli', 'veste noire', 'veste violette', 'pull berserk'];
+
+        function filtrer() {
             var texte = document.getElementById('recherche').value.toLowerCase();
-            var grille = document.getElementById('grille-produits');
-            var cartes = grille.getElementsByTagName('a');
-            var nb = 0;
-            for (var i = 0; i < cartes.length; i++) {
-                var nom = cartes[i].getElementsByTagName('h3')[0].textContent.toLowerCase();
-                if (nom.indexOf(texte) !== -1) {
-                    cartes[i].style.display = 'block';
-                    nb++;
+            var i;
+            for (i = 1; i <= 6; i = i + 1) {
+                if (noms[i-1].indexOf(texte) != -1) {
+                    document.getElementById('carte' + i).style.display = 'block';
                 } else {
-                    cartes[i].style.display = 'none';
+                    document.getElementById('carte' + i).style.display = 'none';
                 }
-            }
-            if (nb === 0) {
-                document.getElementById('aucun-resultat').style.display = 'block';
-            } else {
-                document.getElementById('aucun-resultat').style.display = 'none';
             }
         }
     </script>

@@ -23,7 +23,7 @@
             <div class="nav-liens">
                 <a href="contact.html">Contact</a>
                 <a href="apropos.html">À propos</a>
-                <a href="panier.html">🛒 Panier <span id="panier-compteur"></span></a>
+                <a href="panier.html">🛒 Panier</a>
             </div>
         </div>
     </nav>
@@ -33,19 +33,15 @@
     </div>
 
     <div class="panier-contenu">
-
-        <div class="articles-bloc" id="articles-bloc">
-        </div>
-
+        <div class="articles-bloc" id="articles-bloc"></div>
         <div class="recap-bloc">
             <h2>Récapitulatif</h2>
             <div class="recap-ligne">
                 <span>Total</span>
-                <span id="total-prix">0,00 €</span>
+                <span id="total-prix">0 €</span>
             </div>
             <a href="commande.html" class="btn-commander" id="btn-commander">Passer la commande</a>
         </div>
-
     </div>
 
     <footer>
@@ -76,36 +72,22 @@
     <script src="panier.js"></script>
     <script>
         var panier = getPanier();
-        var bloc = document.getElementById('articles-bloc');
+        var contenu = '';
         var total = 0;
         var i;
 
-        if (panier.length === 0) {
-            bloc.innerHTML = '<p style="color:#888;">Votre panier est vide. <a href="vetements.html" style="color:#111; font-weight:bold;">Voir les articles →</a></p>';
+        if (panier.length == 0) {
+            contenu = '<p>Votre panier est vide. <a href="vetements.html">Voir les articles</a></p>';
             document.getElementById('btn-commander').style.display = 'none';
         } else {
-            for (i = 0; i < panier.length; i++) {
+            for (i = 0; i < panier.length; i = i + 1) {
                 total = total + parseFloat(panier[i].prix);
-                bloc.innerHTML = bloc.innerHTML +
-                    '<div class="article">' +
-                    '<img src="' + panier[i].image + '" alt="' + panier[i].nom + '">' +
-                    '<div class="article-info">' +
-                    '<h3>' + panier[i].nom + '</h3>' +
-                    '<p>Taille : ' + panier[i].taille + '</p>' +
-                    '<p class="article-prix">' + panier[i].prix + ' €</p>' +
-                    '</div>' +
-                    '<button class="btn-supprimer" onclick="supprimer(' + i + ')">✕</button>' +
-                    '</div>';
+                contenu = contenu + '<div class="article"><img src="' + panier[i].image + '" alt="' + panier[i].nom + '"><div class="article-info"><h3>' + panier[i].nom + '</h3><p>Taille : ' + panier[i].taille + '</p><p>' + panier[i].prix + ' €</p></div></div>';
             }
-            document.getElementById('total-prix').textContent = total.toFixed(2) + ' €';
+            document.getElementById('total-prix').textContent = total + ' €';
         }
 
-        function supprimer(index) {
-            var p = getPanier();
-            p.splice(index, 1);
-            savePanier(p);
-            location.reload();
-        }
+        document.getElementById('articles-bloc').innerHTML = contenu;
     </script>
 
 </body>

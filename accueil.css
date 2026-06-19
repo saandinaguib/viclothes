@@ -1,23 +1,120 @@
-/* Spécifique à la page Accueil */
 body { background-color: #ffffff; }
 
-/* BANNIERE */
-.banniere { width: 100%; height: 420px; background-color: #111111; position: relative; overflow: hidden; }
-.banniere img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
-.banniere-contenu { position: absolute; top: 50%; left: 55px; transform: translateY(-50%); z-index: 1; }
-.banniere-contenu h1 { font-size: 52px; font-weight: bold; color: #ffffff; line-height: 1.1; margin-bottom: 16px; }
-.banniere-contenu p { font-size: 14px; color: #cccccc; margin-bottom: 28px; }
-.btn-commander { display: inline-block; background-color: #ffffff; color: #111111; padding: 12px 28px; font-size: 14px; font-weight: bold; border-radius: 4px; }
+.banniere {
+    width: 100%;
+    height: 420px;
+    background-color: #111111;
+    position: relative;
+    overflow: hidden;
+}
 
-/* MEILLEURES VENTES */
-.meilleures-ventes { padding: 60px 40px; background-color: #ffffff; }
-.meilleures-ventes h2 { text-align: center; font-size: 15px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 36px; }
-.grille-produits { display: flex; justify-content: center; gap: 40px; max-width: 1200px; margin: 0 auto; }
-.carte-produit { display: block; border: 1px solid #e0e0e0; border-radius: 6px; overflow: hidden; width: 320px; cursor: pointer; color: #111111; }
-.carte-produit:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-.carte-produit img { width: 100%; height: 380px; object-fit: cover; display: block; }
-.info-produit { padding: 14px 16px; border-top: 1px solid #e0e0e0; }
-.info-produit h3 { font-size: 13px; font-weight: bold; margin-bottom: 5px; }
-.info-produit p { font-size: 12px; color: #888888; }
-.voir-plus { text-align: center; margin-top: 36px; }
-.voir-plus a { display: inline-block; border: 1px solid #cccccc; padding: 10px 60px; font-size: 12px; font-weight: bold; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 4px; }
+.banniere img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+}
+
+.banniere-contenu {
+    position: absolute;
+    top: 50%;
+    left: 55px;
+    transform: translateY(-50%);
+}
+
+.banniere-contenu h1 {
+    font-size: 52px;
+    font-weight: bold;
+    color: #ffffff;
+    line-height: 1.1;
+    margin-bottom: 16px;
+}
+
+.banniere-contenu p {
+    font-size: 14px;
+    color: #cccccc;
+    margin-bottom: 28px;
+}
+
+.btn-commander {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #111111;
+    padding: 12px 28px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.meilleures-ventes {
+    padding: 60px 40px;
+    background-color: #ffffff;
+}
+
+.meilleures-ventes h2 {
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 36px;
+}
+
+.grille-produits {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.carte-produit {
+    display: block;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    overflow: hidden;
+    width: 320px;
+    color: #111111;
+}
+
+.carte-produit img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    display: block;
+}
+
+.info-produit {
+    padding: 14px 16px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.info-produit h3 {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.info-produit p {
+    font-size: 12px;
+    color: #888888;
+}
+
+.voir-plus {
+    text-align: center;
+    margin-top: 36px;
+}
+
+.voir-plus a {
+    display: inline-block;
+    border: 1px solid #cccccc;
+    padding: 10px 60px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: 4px;
+}
