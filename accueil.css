@@ -30,16 +30,22 @@ nav {
     z-index: 100;
 }
 
-nav > a {
+.nav-gauche {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+.nav-gauche a {
     font-size: 13px;
     font-weight: bold;
 }
 
-nav > a:first-child {
-    margin-right: 20px;
+.nav-gauche a:hover {
+    opacity: 0.6;
 }
-
 .nav-logo {
+    grid-column: 2;
     text-align: center;
 }
 
@@ -54,7 +60,9 @@ nav > a:first-child {
     color: #888888;
 }
 
+/* Droite colonne 3 */
 .nav-droite {
+    grid-column: 3;
     display: flex;
     align-items: center;
     justify-content: flex-end;
