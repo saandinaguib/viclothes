@@ -43,10 +43,10 @@
 
             <p class="taille-label">TAILLE</p>
             <div class="tailles">
-                <button class="taille" onclick="choisirTaille('S')">S</button>
-                <button class="taille" onclick="choisirTaille('M')">M</button>
-                <button class="taille" onclick="choisirTaille('L')">L</button>
-                <button class="taille" onclick="choisirTaille('XL')">XL</button>
+                <button class="taille" id="S" onclick="choisirTaille(this,'S')">S</button>
+                <button class="taille" id="M" onclick="choisirTaille(this,'M')">M</button>
+                <button class="taille" id="L" onclick="choisirTaille(this,'L')">L</button>
+                <button class="taille" id="XL" onclick="choisirTaille(this,'XL')">XL</button>
             </div>
 
             <button class="btn-ajouter" onclick="ajouterArticle()">Ajouter au panier</button>
@@ -82,9 +82,18 @@
     <script>
         var taille = '';
 
-        function choisirTaille(t) {
+        function choisirTaille(bouton, t) {
             taille = t;
-            alert('Taille ' + t + ' sélectionnée.');
+            document.getElementById('S').style.background  = '';
+            document.getElementById('S').style.color       = '';
+            document.getElementById('M').style.background  = '';
+            document.getElementById('M').style.color       = '';
+            document.getElementById('L').style.background  = '';
+            document.getElementById('L').style.color       = '';
+            document.getElementById('XL').style.background = '';
+            document.getElementById('XL').style.color      = '';
+            bouton.style.background = '#111111';
+            bouton.style.color      = '#ffffff';
         }
 
         function ajouterArticle() {
