@@ -1,26 +1,11 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: Arial, sans-serif; background-color: #f5f5f5; color: #111111; }
-a { text-decoration: none; color: #111111; }
-
-nav { background-color: #ffffff; border-bottom: 1px solid #e8e8e8; height: 55px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 0 40px; position: sticky; top: 0; z-index: 100; }
-.nav-gauche { display: flex; gap: 28px; align-items: center; }
-.nav-gauche a { font-size: 13px; font-weight: 400; }
-.nav-logo { text-align: center; }
-.nav-logo p:first-child { font-size: 17px; font-weight: bold; letter-spacing: 4px; }
-.nav-logo p:last-child { font-size: 8px; color: #888888; }
-.nav-droite { display: flex; align-items: center; justify-content: flex-end; gap: 10px; }
-.btn-recherche { border: 2px solid #111111; border-radius: 20px; padding: 5px 16px; font-size: 12px; font-weight: bold; background: none; cursor: pointer; font-family: Arial, sans-serif; }
-.nav-liens { background-color: #c8c8c8; border-radius: 20px; padding: 5px 18px; display: flex; gap: 16px; align-items: center; }
-.nav-liens a { font-size: 12px; font-weight: bold; }
-.nav-liens a.actif { text-decoration: underline; text-underline-offset: 3px; }
+/* Spécifique à la page Panier */
+body { background-color: #f5f5f5; }
 
 .header-page { background-color: #f5f5f5; text-align: center; padding: 40px 20px; }
 .header-page h1 { font-size: 22px; font-weight: bold; letter-spacing: 3px; text-transform: uppercase; }
 
 .panier-contenu { display: flex; gap: 30px; max-width: 1100px; margin: 40px auto; padding: 0 40px; }
-
 .articles-bloc { flex: 2; }
-
 .article { display: flex; gap: 20px; background: #ffffff; border: 1px solid #e0e0e0; border-radius: 6px; padding: 16px; margin-bottom: 16px; align-items: center; }
 .article img { width: 90px; height: 110px; object-fit: cover; border-radius: 4px; }
 .article-info { flex: 1; }
@@ -29,17 +14,8 @@ nav { background-color: #ffffff; border-bottom: 1px solid #e8e8e8; height: 55px;
 .article-prix { font-size: 14px; font-weight: bold; color: #111111; }
 .btn-supprimer { background: none; border: none; font-size: 16px; color: #888888; cursor: pointer; padding: 4px; }
 .btn-supprimer:hover { color: #111111; }
-
 .recap-bloc { flex: 1; background: #ffffff; border: 1px solid #e0e0e0; border-radius: 6px; padding: 24px; height: fit-content; }
 .recap-bloc h2 { font-size: 16px; font-weight: bold; margin-bottom: 20px; }
 .recap-ligne { display: flex; justify-content: space-between; font-size: 14px; font-weight: bold; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid #e0e0e0; }
 .btn-commander { display: block; background-color: #111111; color: #ffffff; text-align: center; padding: 14px; font-size: 14px; font-weight: bold; border-radius: 4px; }
 .btn-commander:hover { opacity: 0.85; }
-
-footer { background-color: #111111; color: #ffffff; padding: 48px 40px 24px; margin-top: 60px; }
-.footer-grille { display: flex; justify-content: space-between; gap: 40px; margin-bottom: 40px; }
-.footer-colonne h4 { font-size: 11px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; color: #888888; margin-bottom: 16px; }
-.footer-colonne p, .footer-colonne a { font-size: 13px; color: #aaaaaa; display: block; margin-bottom: 8px; }
-.footer-colonne a:hover { color: #ffffff; }
-.footer-bas { border-top: 1px solid #222222; padding-top: 20px; display: flex; justify-content: space-between; }
-.footer-bas p { font-size: 11px; color: #444444; }
