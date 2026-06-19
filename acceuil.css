@@ -33,6 +33,7 @@ nav {
 .nav-gauche {
     display: flex;
     gap: 28px;
+    align-items: center;
 }
 
 .nav-gauche a {
@@ -46,26 +47,31 @@ nav {
 
 .nav-centre {
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    right: 0;
     text-align: center;
+    pointer-events: none;
 }
 
 .nav-centre .logo {
     font-size: 17px;
     font-weight: bold;
     letter-spacing: 4px;
+    pointer-events: all;
 }
 
 .nav-centre .point {
     font-size: 8px;
     color: #888888;
+    display: block;
 }
 
 .nav-droite {
     display: flex;
     align-items: center;
     gap: 10px;
+    position: relative;
+    z-index: 1;
 }
 
 .btn-recherche {
@@ -84,6 +90,7 @@ nav {
     padding: 5px 18px;
     display: flex;
     gap: 16px;
+    align-items: center;
 }
 
 .nav-liens a {
@@ -105,6 +112,9 @@ nav {
 }
 
 .banniere-image {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -125,6 +135,7 @@ nav {
     top: 50%;
     left: 55px;
     transform: translateY(-50%);
+    z-index: 2;
 }
 
 .banniere-contenu h1 {
